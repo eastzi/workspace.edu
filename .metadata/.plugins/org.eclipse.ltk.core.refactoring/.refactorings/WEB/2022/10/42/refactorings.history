@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;member.sql&apos; to &apos;MVC01/src/main/java/kr.bit.db&apos;&#x0D;&#x0A;- Original project: &apos;WEB&apos;&#x0D;&#x0A;- Destination element: &apos;MVC01/src/main/java/kr.bit.db&apos;&#x0D;&#x0A;- Original element: &apos;member.sql&apos;" description="Copy file" destination="=MVC01/src\/main\/java&lt;kr.bit.db" element1="src/kr/web/db/member.sql" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1665545858861" units="0" version="1.0"/>
+</session>
