@@ -1,4 +1,11 @@
+content-types/jsf.facelet.composite/charset=UTF-8
 content-types/org.eclipse.emf.codegen.jet/charset=UTF-8
 content-types/org.eclipse.jdt.core.javaProperties/charset=UTF-8
 content-types/org.eclipse.jdt.core.javaSource/charset=UTF-8
+content-types/org.eclipse.jst.jsp.core.cssjspsource/charset=UTF-8
+content-types/org.eclipse.jst.jsp.core.jspfragmentsource/charset=UTF-8
+content-types/org.eclipse.jst.jsp.core.tagsource/charset=UTF-8
+content-types/org.eclipse.wildwebdeveloper.css/charset=UTF-8
+content-types/org.eclipse.wildwebdeveloper.html/charset=UTF-8
+content-types/org.eclipse.wildwebdeveloper.js/charset=UTF-8
 eclipse.preferences.version=1
