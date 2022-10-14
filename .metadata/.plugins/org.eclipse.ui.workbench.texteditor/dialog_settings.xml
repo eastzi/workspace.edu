@@ -6,10 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
+		<item key="selection" value="out.println(&quot;&lt;t"/>
 		<list key="findhistory">
+			<item value="&lt;t"/>
 			<item value="/Users/EGOVEDU/eGovFrame-3.10.0/"/>
 		</list>
 		<list key="replacehistory">
+			<item value="out.println(&quot;&lt;t"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

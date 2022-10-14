@@ -6,7 +6,8 @@ create table member(
 	name varchar(30) not null, 
 	age int not null, 
 	email varchar(30) not null, 
-	phone varchar(30) not null
+	phone varchar(30) not null,
+	unique key(id)
 )
 
 -- SQL(CRUD), JDBC
@@ -22,3 +23,6 @@ update member set age = 45, phone = '010-1111-1111' where id = 'admin';
 
 -- delete(삭제)
 delete from member where id = 'admin';
+
+--table 삭제
+drop table member; 

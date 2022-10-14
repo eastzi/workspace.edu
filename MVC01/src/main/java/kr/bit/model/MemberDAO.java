@@ -1,5 +1,6 @@
 package kr.bit.model;
 import java.sql.*;
+import java.util.ArrayList;
 
 //MemberVO를 DB와 연동하는 역할 
 public class MemberDAO {
@@ -47,7 +48,66 @@ public class MemberDAO {
 			cnt = ps.executeUpdate(); //ps가 가지고 있는 완성된 SQL 실행(전송) 
 		} catch (SQLException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			dbClose(); //db연결 끊기 
+		}
 		return cnt; //cnt --> 성공시 1, 실패시 0
+	}
+	
+	//MemberListController와 연관 -> 1. 회원(VO) 전체리스트(ArrayList) 가져오기 
+	public ArrayList<MemberVO> memberList() {
+		String SQL = "select * from member";
+		getConnect(); 
+		
+		//4-4 묶음 데이터 담기
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>(); 
+		
+		//3. db에 있는 회원목록 가져오기 
+		try {
+			//DB와 미리 컴파일시키는 작업. values값을 제외한 변수들만.(오류체크 및 속도가 빨라지기 때문)
+			//SQL에 파라메터가 없기때문에 추가 설정없이 실행가능 
+			ps = conn.prepareStatement(SQL);  
+			rs = ps.executeQuery(); //insert - executeUpdate / select - executeQuery
+			
+			//4. db에 데이터가 있는지 확인
+			while(rs.next()) {
+				//4-2 데이터 가져오기
+				int num = rs.getInt("num");
+				String id = rs.getString("id");
+				String pass = rs.getString("pass");
+				String name = rs.getString("name");
+				int age = rs.getInt("age");
+				String email = rs.getString("email");
+				String phone = rs.getString("phone");
+				
+				//4-3 가져온 데이터 묶기
+				MemberVO vo = new MemberVO(num, id, pass, name, age, email, phone);
+				//4-4 묶음 데이터 담기 -> list에 전체 회원리스트가 저장됨
+				list.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			dbClose();
+		}
+		//5. 담은 전체 회원리스트 리턴 -> 메소드타입도 변경하기(ArrayList<MemberVO>)
+		return list;
+	}
+	
+	//2. DB사용 완료시 연결 끊기 -> 변수 갯수 모두 끊어줘야함.
+	public void dbClose() {
+		try {
+			if(rs!=null) {
+				rs.close();				
+			}
+			if(ps!=null) {
+				ps.close();				
+			}
+			if(conn!=null) {
+				conn.close();				
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 }
