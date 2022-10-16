@@ -71,7 +71,7 @@ public class MemberListController extends HttpServlet {
 			out.println("<td>"+vo.getAge()+"</td>");
 			out.println("<td>"+vo.getEmail()+"</td>");
 			out.println("<td>"+vo.getPhone()+"</td>");
-			out.println("<th><a href='/MVC01/memberDelete.do?num="+vo.getNum()+"'>삭제</a></th>"); //memberDeleteController
+			out.println("<th><a href='/MVC01/memberDelete.do'>삭제</a></th>"); //memberDeleteController
 			out.println("</tr>");			
 		}
 		

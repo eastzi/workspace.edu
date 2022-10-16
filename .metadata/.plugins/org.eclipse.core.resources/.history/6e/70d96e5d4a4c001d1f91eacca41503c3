@@ -108,7 +108,6 @@ public class MemberDAO {
 		} finally {
 			dbClose(); 
 		}
-		return cnt;
 	}
 	
 	//2. DB사용 완료시 연결 끊기 -> 변수 갯수 모두 끊어줘야함.

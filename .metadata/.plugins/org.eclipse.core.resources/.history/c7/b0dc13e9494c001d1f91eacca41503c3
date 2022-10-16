@@ -94,21 +94,17 @@ public class MemberDAO {
 		return list;
 	}
 	
-	public int memberDelete(int num) {
+	public void memberDelete(int num) {
 		String SQL = "delete from member where num =?";
 		getConnect();
-		
-		int cnt = -1;
 		try {
-			ps = conn.prepareStatement(SQL); //DB와 미리 컴파일시키는 작업. values값을 제외한 변수들만.(오류체크 및 속도가 빨라지기 때문)
+			ps = conn.prepareStatement(SQL);
 			ps.setInt(1, num);
-			cnt = ps.executeUpdate(); //성공시 1, 실패시 0
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			dbClose(); 
 		}
-		return cnt;
 	}
 	
 	//2. DB사용 완료시 연결 끊기 -> 변수 갯수 모두 끊어줘야함.
