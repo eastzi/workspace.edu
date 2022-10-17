@@ -65,7 +65,7 @@ public class MemberListController extends HttpServlet {
 		for(MemberVO vo : list) {
 			out.println("<tr>");
 			out.println("<td>"+vo.getNum()+"</td>");
-			out.println("<td>"+vo.getId()+"</td>");
+			out.println("<td><a href='/MVC01/memberContent.do?num="+vo.getNum()+"'>"+vo.getId()+"</a></td>");
 			out.println("<td>"+vo.getPass()+"</td>");
 			out.println("<td>"+vo.getName()+"</td>");
 			out.println("<td>"+vo.getAge()+"</td>");
