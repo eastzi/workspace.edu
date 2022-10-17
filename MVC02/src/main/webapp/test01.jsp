@@ -17,6 +17,11 @@
 	for(int i = 0; i < 101; i++) {
 		sum += i;
 	}
+	
+	// JSP의 내장객체(이미 만들어진 객체) - Servlet으로 변환될 때 만들어짐.  
+	// request, response
+	// session, out, config, application, page, pageContext
+	
 %>
 
 <!DOCTYPE html>
