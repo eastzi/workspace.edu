@@ -55,6 +55,8 @@ C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jsp
 \lab303-easycompany-tutor\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4118221702.index
 \lab401-mobile-guide-3.5\src\main\java
+C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1095414665.index
+\MVC01\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2400910655.index
 \lab105-template-project-tutor\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3559637573.index
@@ -173,6 +175,8 @@ C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jsp
 \lab104-common-component-tutor\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\709189140.index
 \lab104-common-component-tutor\src\main\java
+C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2917097841.index
+\MVC03\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3198431531.index
 \lab401-mobile-guide-3.5\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3434795277.index
@@ -195,6 +199,8 @@ C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jsp
 \lab105-template-project-tutor\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\706694978.index
 \lab401-mobile-guide-3.5\src\main\java
+C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\424942241.index
+\MVC02\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\3015652701.index
 \lab301-mvc\src\main\java
 C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2559228738.index

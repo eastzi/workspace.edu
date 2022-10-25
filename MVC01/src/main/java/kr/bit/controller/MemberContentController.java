@@ -21,6 +21,7 @@ public class MemberContentController extends HttpServlet {
 		
 		MemberDAO dao = new MemberDAO(); 
 		MemberVO vo = dao.memberContent(num); 
+		
 		response.setContentType("text/html;charset=utf-8");
 		
 		PrintWriter out = response.getWriter();
