@@ -13,6 +13,7 @@
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="kr.bit.model.MemberVO"/>
     <fullyQualifiedTypeName name="kr.bit.model.MemberDAO"/>
+    <fullyQualifiedTypeName name="kr.bit.model.MemberVO"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>
