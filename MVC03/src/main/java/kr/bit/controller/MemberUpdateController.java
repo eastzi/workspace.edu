@@ -39,7 +39,7 @@ public class MemberUpdateController extends HttpServlet {
 			/*수정성공
 			out.println("insert success");
 			수정성공시 회원리스트 보기로 이동 -> memberList.do로 이동*/
-			response.sendRedirect("/MVC01/memberList.do") ;
+			response.sendRedirect("/MVC03/memberList.do") ;
 		}else {
 			//가입실패 -> 예외객체를 만들어서 was에 던지기 
 			throw new ServletException("not update"); 
