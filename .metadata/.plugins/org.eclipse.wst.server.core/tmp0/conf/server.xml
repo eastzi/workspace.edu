@@ -151,7 +151,7 @@
 		<Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\eGovFrame-4.0.0\workspace.edu\WEB\webapp" path="/web"/>
 		<!-- 통켓이 인식하도록 등록하는 것 -> 톰켓은 등록이 되어 있어야 어플리케이션을 찾을 수 있음 -->
 		
-		<Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MVC03" path="/MVC03" reloadable="true" source="org.eclipse.jst.jee.server:MVC03"/></Host>
+		<Context docBase="C:\eGovFrame-4.0.0\workspace.edu\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\MVC04" path="/MVC04" reloadable="true" source="org.eclipse.jst.jee.server:MVC04"/></Host>
     </Engine>
   </Service>
 </Server>
