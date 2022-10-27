@@ -1,7 +1,7 @@
 package kr.bit.model;
 import java.sql.*;
 import java.util.ArrayList;
-
+//JDBC
 //MemberVO를 DB와 연동하는 역할 
 public class MemberDAO {
 	private Connection conn; 
