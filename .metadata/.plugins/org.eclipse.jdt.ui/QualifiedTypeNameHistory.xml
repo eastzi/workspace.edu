@@ -32,11 +32,16 @@
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="javax.annotation.Resources"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.io.Resources"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
-    <fullyQualifiedTypeName name="kr.bit.controller.Controller"/>
-    <fullyQualifiedTypeName name="kr.bit.model.MemberDAO"/>
-    <fullyQualifiedTypeName name="kr.bit.model.MemberVO"/>
     <fullyQualifiedTypeName name="kr.bit.controller.MemberLoginController"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="kr.bit.controller.MemberLogoutController"/>
+    <fullyQualifiedTypeName name="kr.bit.controller.MemberDbcheckController"/>
+    <fullyQualifiedTypeName name="org.apache.ibatis.session.SqlSession"/>
+    <fullyQualifiedTypeName name="kr.bit.model.MemberDAO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="kr.bit.model.MemberVO"/>
+    <fullyQualifiedTypeName name="com.google.gson.Gson"/>
+    <fullyQualifiedTypeName name="kr.bit.controller.MemberAjaxListController"/>
+    <fullyQualifiedTypeName name="kr.bit.controller.Controller"/>
+    <fullyQualifiedTypeName name="kr.bit.controller.MemberAjaxDeleteController"/>
 </qualifiedTypeNameHistroy>

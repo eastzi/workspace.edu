@@ -42,6 +42,10 @@
 	  return true;
   }
   
+  function logout() {
+	location.href="<c:url value='/memberLogout.do'/>"; //=${ctx}/memberLogout.do 동일
+  }
+  
 </script>
 
 </head>
@@ -51,7 +55,8 @@
   <h2>회원관리시스템</h2>
   <div class="card">
     <div class="card-header">
-		<div class="container">
+		<div class="container">     <!-- requestScope - request.setAttribute / sessionScope - session.setAttribute -->
+		<c:if test="${sessionScope.userId == null || sessionScope.userId == ''}"> <!-- || 하나만 참이라도 참 -->
 		  <form class="form-inline" action="${ctx}/memberLogin.do" method="post">
 		    <label for="user_id">ID:</label>
 		    <input type="text" class="form-control" id="user_id" placeholder="Enter ID" name="user_id">
@@ -59,6 +64,11 @@
 		    <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
 		    <button type="submit" class="btn btn-primary" onclick="return check()">로그인</button>
 		  </form>
+		</c:if>
+		<c:if test="${sessionScope.userId != null && sessionScope.userId != ''}"> <!-- && 둘다 모두 참 -->
+		${sessionScope.userName}님 환영합니다.
+		<button type="button" class="btn btn-warning" onclick="logout()">로그아웃</button>
+		</c:if>
 		</div>
 	</div>
     <div class="card-body">
@@ -80,12 +90,17 @@
 				    <tr>
 				  	    <td>${vo.num}</td>
 				  	    <td><a href="${ctx}/memberContent.do?num=${vo.num}">${vo.id}</a></td>
-				  	    <td>${vo.id}</td>
 				  	    <td>${vo.pass}</td>
 				  	    <td>${vo.name}</td>
 				  	    <td>${vo.age}</td>
 				  	    <td>${vo.email}</td>
+				  	    <td>${vo.phone}</td>
+				  	    <c:if test="${sessionScope.userId == vo.id }">
 				  	    <td><input type="button" value="삭제" class="btn btn-warning" onclick="deleteFn(${vo.num})"></td>
+				  	    </c:if>
+				  	    <c:if test="${sessionScope.userId != vo.id }">
+				  	    <td><input type="button" value="삭제" class="btn btn-warning" onclick="deleteFn(${vo.num})" disabled="disabled"></td>
+						</c:if>
 					</tr>
 				</c:forEach>
 				<tr>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.bit.mybatis.MemberMapper">
+  <!-- memberList -->
+  <!-- id는 연결하고자하는 메소드 이름을 작성 /
+   resultType은 가져온 정보를 vo로 묶는 타입 클래스 주소를 작성->config.xml에서 typeAliases로 설정 -->
+  <select id="memberList" resultType="memberVO">
+  	select * from member
+  </select>
+  
+  <insert id="memberInsert" parameterType="memberVO">
+    insert into member(id, pass, name, age, email, phone)
+    values(
+    #{id}, 
+    #{pass}, 
+    #{name}, 
+    #{age}, 
+    #{email}, 
+    #{phone}
+    )
+  </insert>
+  
+  <delete id="memberDelete" parameterType="Integer">
+    delete from member where num = #{num}
+  </delete>
+  
+  <select id="memberContent" parameterType="Integer" resultType="memberVO">
+    select * from member where num = #{num}
+  </select>
+  
+  <update id="memberUpdate" parameterType="memberVO">
+    update member
+    set age = #{age}, email = #{email}, phone = #{phone}
+    where num = #{num}
+  </update>
+  
+  <select id="memberLogin" parameterType="memberVO" resultType="String">
+  	select name from member where id = #{id} and pass = #{pass}
+  </select>
+  
+  <select id="memberDbcheck" resultType="String" parameterType="String">
+    select id from member where id = #{id}
+  </select>
+</mapper>
