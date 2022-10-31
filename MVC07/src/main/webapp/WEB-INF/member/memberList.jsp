@@ -19,6 +19,11 @@
 <script src='https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js'></script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<style type="text/css">
+	table td {
+		vertical-align: middle !important;
+	}
+</style>
 <script type="text/javascript">
   $(document).ready(function(){
 	  <c:if test="${!empty msg}">
@@ -137,6 +142,7 @@
 				    <th>나이</th>
 				    <th>이메일</th>
 				    <th>전화번호</th>
+				    <th>이미지</th>
 				    <th>삭제</th>
 		        </tr>
 		      </thead>
@@ -150,6 +156,11 @@
 				  	    <td>${vo.age}</td>
 				  	    <td>${vo.email}</td>
 				  	    <td>${vo.phone}</td>
+				  	    <td>
+				  	      <c:if test="${vo.filename != null && vo.filename != ''}">
+				  	        <img src="<c:out value='file_repo/${vo.filename}'/>" width="60px" height="60px">
+				  	      </c:if>
+				  	    </td>
 				  	    <c:if test="${sessionScope.userId == vo.id }">
 				  	    <td><input type="button" value="삭제" class="btn btn-warning" onclick="deleteFn(${vo.num})"></td>
 				  	    </c:if>
@@ -159,7 +170,7 @@
 					</tr>
 				</c:forEach>
 				<tr>
-			      <td colspan="8" align="right"><input type="button" value="회원가입" class="btn btn-primary" onclick="location.href='${ctx}/memberRegister.do'" /></td>
+			      <td colspan="9" align="right"><input type="button" value="회원가입" class="btn btn-primary" onclick="location.href='${ctx}/memberRegister.do'" /></td>
 			    </tr>
 		      </tbody>
 		    </table>

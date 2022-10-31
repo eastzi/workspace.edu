@@ -52,6 +52,38 @@
 			$("#id").focus();
 		}
 	}
+	
+	function add2() {
+		if($("#file").val() != '') {
+			//파일이 첨부된 경우 -> formData 객체로 넘김
+			var formData = new FormData(); 
+			formData.append("file", $("input[name = file]")[0].files[0]);
+			$.ajax({
+				url: "<c:url value='/fileAdd.do'/>", //파일 업로드 컨트롤러
+				type: "post",
+				data: formData,
+				processData: false,
+				contentType: false,
+				success: function(data){
+					//alert(data);
+					//업로드된 실제 파일이름을 전달 받기 -> 파일업로드
+					$('#filename').val(data); 
+					//회원가입 데이터 7개를 insert로 넘기기 -> 회원가입
+					document.form1.action="<c:url value='/memberInsert.do'/>?mode=fadd"; //text데이터를 저장하는 부분
+					//id, pass, name, age, email, phone, filename(첨부된 경우만)이 memberInsert로 넘어감
+					document.form1.submit(); 
+				},
+				error: function(){alert("error");}
+			});
+		}else{
+			//파일이 첨부되지 않은 경우
+			//회원가입 데이터 7개를 insert로 넘기기 -> 회원가입
+			//-> 파일 있는경우 없는 경우가 구분이 안됨(memberInsert에서) -> mode로 구분하기
+			document.form1.action="<c:url value='/memberInsert.do'/>?mode=add"; 
+			//id, pass, name, age, email, phone이 memberInsert로 넘어감
+			document.form1.submit(); 
+		}
+	}
 </script>
 </head>
 <body>
@@ -97,13 +129,18 @@
 		    </div>
 		    <div class="form-group">
 		      <label for="phone">전화번호:</label>
-		      <input type="email" class="form-control" id="phone" placeholder="이메일을 입력하세요" name="phone">
+		      <input type="email" class="form-control" id="phone" placeholder="전화번호를 입력하세요" name="phone">
 		    </div>
+		    <div class="form-group">
+		      <label>첨부파일:</label>
+		      <input type="file" class="control-label" id="file" name="file">
+		    </div>
+		    <input type="hidden" name="filename" id="filename" vlaue="">
 	     </form>
 	</div> 
     <div class="card-footer" style="text-align: center;">
     	<c:if test="${sessionScope.userId == null || sessionScope.userId == ''}">
-			<input type="button" value="등록" class="btn btn-primary" onclick="add()"/>
+			<input type="button" value="등록" class="btn btn-primary" onclick="add2()"/>
 		</c:if>
 		
 		<c:if test="${sessionScope.userId != null && sessionScope.userId != ''}">

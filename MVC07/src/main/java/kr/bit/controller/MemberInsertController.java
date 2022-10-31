@@ -1,7 +1,6 @@
 package kr.bit.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +33,12 @@ public class MemberInsertController implements Controller{
 		매개변수가 있는 생성자를 만들수도 있고 아닐 수도 있어서 기본생성자를 이용해서 필요 변수에 set으로 데이터저장
 		*/
 		MemberVO vo = new MemberVO(); 
+		
+		//파일이 첨부된 경우
+		if(request.getParameter("mode").equals("fadd")) {
+			String filename = request.getParameter("filename");
+			vo.setFilename(filename);
+		}
 		vo.setId(id);
 		vo.setPass(pass);
 		vo.setName(name);
@@ -46,7 +51,13 @@ public class MemberInsertController implements Controller{
 		
 		//3. 수집된 파라메터를 model과 연동하기
 		MemberDAO dao = new MemberDAO(); 
-		int cnt = dao.memberInsert(vo);
+		int cnt = -1;
+		
+		if(request.getParameter("mode").equals("fadd")) {
+			cnt = dao.memberInsertFile(vo);  //파일이름을 저장해야하는 경우
+		}else {
+			cnt = dao.memberInsert(vo);	//파일이름을 저장할 필요가 없는 경우		
+		}
 		
 		//PrintWriter out = response.getWriter(); //view에 뿌리는 빨대
 		String nextPage = null; 

@@ -23,6 +23,12 @@ public class MemberUpdateController implements Controller{
 		String phone = request.getParameter("phone");
 		
 		MemberVO vo = new MemberVO(); 
+		
+		// 파일 수정하기
+		if(request.getParameter("mode").equals("fupdate")) {
+			String filename = request.getParameter("filename");
+			vo.setFilename(filename);
+		}
 		vo.setNum(num);
 		vo.setAge(age);
 		vo.setEmail(email);
@@ -31,8 +37,14 @@ public class MemberUpdateController implements Controller{
 		
 		//dao 모델 객체를 연결해서 업데이트하기 -> dao에 업데이트 함수 만들기 
 		MemberDAO dao = new MemberDAO(); 
-		int cnt = dao.memberUpdate(vo);
-	
+		
+		int cnt = -1;
+		if(request.getParameter("mode").equals("fupdate")) {
+			cnt = dao.memberUpdateFile(vo);
+		}else {
+			cnt = dao.memberUpdate(vo);
+		}
+		
 		String nextPage = null; 
 		if(cnt > 0) {
 			/*수정성공

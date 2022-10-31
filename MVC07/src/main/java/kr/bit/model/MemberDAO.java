@@ -37,10 +37,19 @@ public class MemberDAO {
 		return list;
 	}
 	
-	//회원가입 - insert
+	//회원가입 - insert(파일업로드 없는경우)
 	public int memberInsert(MemberVO vo) {
 		SqlSession session = sqlSessionFactory.openSession(); 
 		int cnt = session.insert("memberInsert", vo); 
+		session.commit();
+		session.close();
+		return cnt; 
+	}
+	
+	//회원가입 - insert(파일업로드 있는경우)
+	public int memberInsertFile(MemberVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		int cnt = session.insert("memberInsertFile", vo); 
 		session.commit();
 		session.close();
 		return cnt; 
@@ -50,6 +59,15 @@ public class MemberDAO {
 	public int memberDelete(int num) {
 		SqlSession session = sqlSessionFactory.openSession(); 
 		int cnt = session.delete("memberDelete", num); 
+		session.commit();
+		session.close();
+		return cnt; 
+	}
+	
+	//회원파일삭제 - update
+	public int memberDeleteFile(int num) {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		int cnt = session.update("memberDeleteFile", num); 
 		session.commit();
 		session.close();
 		return cnt; 
@@ -67,6 +85,15 @@ public class MemberDAO {
 	public int memberUpdate(MemberVO vo) {
 		SqlSession session = sqlSessionFactory.openSession(); 
 		int cnt = session.update("memberUpdate", vo); 
+		session.commit();
+		session.close();
+		return cnt; 
+	}
+	
+	//회원 파일수정하기 - update
+	public int memberUpdateFile(MemberVO vo) {
+		SqlSession session = sqlSessionFactory.openSession(); 
+		int cnt = session.update("memberUpdateFile", vo); 
 		session.commit();
 		session.close();
 		return cnt; 
