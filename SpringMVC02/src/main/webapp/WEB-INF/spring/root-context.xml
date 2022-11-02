@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring https://mybatis.org/schema/mybatis-spring-1.2.xsd
+	http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd 
+	http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- DB관련 설정 -->
+	<!-- MyBatis SqlSessionFactory -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="configLocation" value="/WEB-INF/mybatis/config.xml"/>
+		<!-- <property name="mapperLocations" value="classpath:kr/bit/mybatis/*.xml"/>
+		 memberMapper.xml이 memberMapper.java와 동일경로로 합쳐지면서 굳이 경로를 설정해줄 필요가 없어짐(다른 패키지일 경우만 경로설정)  -->
+	</bean>
+	
+	<!-- JDBC연결(DataSource) - DB연결 -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.SimpleDriverDataSource">
+		<property name="driverClass" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${username}"/>
+		<property name="password" value="${password}"/>
+	</bean>
+		
+	<!-- db.properties 파일연결(Class를 리플렉션으로 객체 생성) -> MVC에서는 config.xml파일에서 했음 -->
+	<!-- db.properties는 sql 주소와 아이디 비번을 적은 파일 -->
+	<bean id="propertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="/WEB-INF/mybatis/db.properties"></property>
+	</bean>
+	
+	<context:component-scan base-package="kr.bit.model"></context:component-scan>
+	<mybatis-spring:scan base-package="kr.bit.mapper"/>
+</beans>
