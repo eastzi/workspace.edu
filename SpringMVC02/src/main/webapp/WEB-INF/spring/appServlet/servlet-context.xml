@@ -21,6 +21,13 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 다중 업로드 API -->
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<beans:property name="maxUploadSize" value="52428800"/> <!-- 업로드가능한 파일크기 -->
+		<beans:property name="maxInMemorySize" value="1000000"/> <!-- 업로드전 임시메모리에 저장가능한 파일크기 -->
+		<beans:property name="defaultEncoding" value="utf-8"/>
+	</beans:bean>
+	
 	<context:component-scan base-package="kr.narp.myapp1" />
 	
 	

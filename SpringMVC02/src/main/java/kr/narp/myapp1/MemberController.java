@@ -93,4 +93,10 @@ public class MemberController {
 		(@ResponseBody와 API 2개가 그 역할을함)
 		*/
 	}
+	
+	@RequestMapping("/form.do")
+	public String form() {
+		
+		return "uploadForm"; 
+	}
 }
