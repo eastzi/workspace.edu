@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value="out.println(&quot;&lt;t"/>
 		<list key="findhistory">
+			<item value="&lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;"/>
 			<item value="&lt;t"/>
 			<item value="/Users/EGOVEDU/eGovFrame-3.10.0/"/>
 		</list>
