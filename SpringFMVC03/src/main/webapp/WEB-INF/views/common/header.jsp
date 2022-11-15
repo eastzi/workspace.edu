@@ -27,9 +27,17 @@
   <!-- 로그인을 한 경우 -->
   	  <c:if test="${!empty mvo}">
 	      <ul class="nav navbar-nav navbar-right">
-            <li><span class="glyphicon glyphicon glyphicon-wrench"></span> 회원정보수정</li>
-            <li><span class="glyphicon glyphicon glyphicon-picture"></span> 사진등록</li>
-            <li><a href="${contextPath}/memLogout.do"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>            
+            <li><a href="${contextPath}/memUpdateForm.do"><span class="glyphicon glyphicon glyphicon-wrench"></span> 회원정보수정</a></li>
+            <li><a href="${contextPath}/memImageForm.do"><span class="glyphicon glyphicon glyphicon-picture"></span> 사진등록</a></li>
+            <li><a href="${contextPath}/memLogout.do"><span class="glyphicon glyphicon-log-out"></span> 로그아웃</a></li>      
+            <c:if test="${!empty mvo }"> <!-- 로그인을 한 경우 -->
+			  	<c:if test="${mvo.memProfile eq ''}"> <!-- Profile이 null인 경우 -->
+			  		<li><img class="img-circle" alt="기본이미지" src="${contextPath}/resources/images/person.png" style="width: 50px; height: 50px"/>${mvo.memName}님 welcome</li>
+			  	</c:if>
+			  	<c:if test="${mvo.memProfile ne ''}"> <!-- Profile이 null이 아닌 경우 -->
+			  		<li><img class="img-circle" alt="회원이미지" src="${contextPath}/resources/upload/${mvo.memProfile}" style="width: 50px; height: 50px"/>${mvo.memName}님 welcome</li>
+			  	</c:if>
+		    </c:if>      
 	      </ul>
       </c:if>
     </div>

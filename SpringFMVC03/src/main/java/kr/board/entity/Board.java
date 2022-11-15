@@ -9,6 +9,7 @@ public class Board {
 	 * 해당 클래스명과 테이블명을 동일하게 작성
 	 */
 	private int idx; //번호
+	private String memID; //회원아이디 추가
 	private String title; //제목
 	private String content; //내용
 	private String writer; //작성자

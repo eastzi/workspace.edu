@@ -52,36 +52,46 @@
   	  		listHtml+="<td>내용</td>";
   	  		listHtml+="<td colspan='4'>";
   	  		listHtml+="<textarea id='ta" + obj.idx +"' readonly rows='7' class='form-control'></textarea>";
-  	  		listHtml+="<br/>"
-  	  		listHtml+="<span id='ud" + obj.idx +"'><button class='btn btn-success' onclick='goUpdateForm("+ obj.idx +")'>수정화면</button></span>&nbsp;"
-  	  		listHtml+="<button class='btn btn-warning' onclick='goDelete("+ obj.idx +")'>삭제</button>"
-  	  		listHtml+="</td>";
-  	  		listHtml+="</tr>";
+  	  		//로그인한 회원의 글만 수정, 삭제하기
+  	  		if("${mvo.memID}" == obj.memID){
+	  	  		listHtml+="<br/>";
+	  	  		listHtml+="<span id='ud" + obj.idx +"'><button class='btn btn-success' onclick='goUpdateForm("+ obj.idx +")'>수정화면</button></span>&nbsp;"
+	  	  		listHtml+="<button class='btn btn-warning' onclick='goDelete("+ obj.idx +")'>삭제</button>";  	  			
+  	  		}else{
+  	  			listHtml+="<br/>";
+	  	  		listHtml+="<span id='ud" + obj.idx +"'><button disabled class='btn btn-success' onclick='goUpdateForm("+ obj.idx +")'>수정화면</button></span>&nbsp;"
+	  	  		listHtml+="<button disabled class='btn btn-warning' onclick='goDelete("+ obj.idx +")'>삭제</button>";  	 
+  	  		}
+	  	  		listHtml+="</td>";
+	  	  		listHtml+="</tr>";
   		});
   		
-  		listHtml+="<tr>";
-  		listHtml+="<td colspan='5'>";
-  		listHtml+="<button class='btn btn-primary' onclick='goForm()'>글쓰기</button>";
-  		listHtml+="</td>";
-  		listHtml+="</tr>";
-  		listHtml+="</table>";
+  		//로그인을 한 경우에만 보이는 글쓰기 버튼
+  		if(${!empty mvo}) {
+	  		listHtml+="<tr>";
+	  		listHtml+="<td colspan='5'>";
+	  		listHtml+="<button class='btn btn-primary' onclick='goForm()'>글쓰기</button>";
+	  		listHtml+="</td>";
+	  		listHtml+="</tr>";
+  		}
+	  	listHtml+="</table>";  			
   		
   		$("#view").html(listHtml);	
   		
   		// 등록 후 리스트 보이기
   		$("#view").css("display", "block"); //보이고
-  		$("#wform").css("display", "none"); //감추고
+  		$("#wfrom").css("display", "none"); //감추고
  
   	}
   	                          
   	function goForm(){
-  		$("#view").css("display", "none"); //감추고
-  		$("#wform").css("display", "block"); //보이고
-  	}         
+    	$("#view").css("display","none");  // 감추고
+    	$("#wfrom").css("display","block");// 보이고
+     }        
   	
   	function goList(){
   		$("#view").css("display", "block"); //보이고
-  		$("#wform").css("display", "none"); //감추고
+  		$("#wfrom").css("display", "none"); //감추고
   	}
   	
   	function goInsert(){
@@ -199,6 +209,7 @@
     <div class="panel-body" id="view">Panel Content</div>
     <div class="panel-body" id="wfrom" style="display: none">
      <form id="frm">
+     <!-- 회원제게시판을 위해 회원아이디 넘기기 -->
       <input type="hidden" name="memID" id="memID" value="${mvo.memID}"/>
       <table class="table">
          <tr>
