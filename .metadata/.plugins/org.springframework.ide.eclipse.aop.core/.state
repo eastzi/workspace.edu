@@ -3,4 +3,5 @@
 <aop-project name="SpringFMVC01"/>
 <aop-project name="SpringFMVC02"/>
 <aop-project name="SpringFMVC03"/>
+<aop-project name="SpringFMVC04"/>
 </aop-reference-model>
